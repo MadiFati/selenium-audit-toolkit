@@ -1,0 +1,37 @@
+name: Build & Test Audit Toolkit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build JAR
+        run: mvn package -DskipTests
+
+      - name: Run unit tests
+        run: mvn test
+
+      - name: Self-audit (run the tool on itself)
+        run: |
+          java -jar target/selenium-audit-toolkit-1.0.0.jar src/ \
+            --format both \
+            --output audit-self-report
+
+      - name: Upload self-audit HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: self-audit-report
+          path: audit-self-report.html
