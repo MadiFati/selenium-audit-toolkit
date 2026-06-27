@@ -37,8 +37,8 @@ public class FragileXPathRule implements AuditRule {
         cu.findAll(MethodCallExpr.class).stream()
             .filter(m -> m.getNameAsString().equals("xpath"))
             .forEach(m -> m.getArguments().forEach(arg -> {
-                if (arg instanceof StringLiteralExpr str) {
-                    String xpath = str.asString();
+                if (arg instanceof StringLiteralExpr) {
+                    String xpath = ((StringLiteralExpr) arg).asString();
                     if (FRAGILE_XPATH.matcher(xpath).find()) {
                         int line = m.getBegin().map(p -> p.line).orElse(0);
                         issues.add(new AuditIssue(
