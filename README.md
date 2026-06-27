@@ -89,5 +89,5 @@ Score : 55/100 — Needs improvement
 ## Author
 
 **Fatima El Madini** — Senior Test Automation Engineer  
-[LinkedIn](https://linkedin.com/in/yourprofile) · [Malt](https://malt.fr/profile/yourprofile)  
+[LinkedIn](https://www.linkedin.com/in/fatimazahra-el-madini-58352210b/)· [Malt](https://malt.fr/profile/yourprofile)  
 Portfolio : [Projet 1](https://github.com/MadiFati/selenium-e2e-framework) · [Projet 2](https://github.com/MadiFati/api-ui-testing-combo)
