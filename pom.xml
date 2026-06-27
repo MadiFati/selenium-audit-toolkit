@@ -33,7 +33,7 @@
             <version>${javaparser.version}</version>
         </dependency>
 
-        <!-- Picocli : CLI avec --help, --output, --format -->
+        <!-- Picocli : CLI avec help, output, format -->
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli</artifactId>
